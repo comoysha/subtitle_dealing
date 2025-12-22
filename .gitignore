@@ -1,0 +1,9 @@
+# Environment file
+.env
+
+# Ignore txt, srt, mp3, mp4, json files in all directories
+**/*.txt
+**/*.srt
+**/*.mp3
+**/*.mp4
+**/*.json
