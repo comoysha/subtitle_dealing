@@ -1,8 +1,7 @@
 # subtitle_dealing
 
-把 B 站 AI 字幕 JSON（`body[].content`）提取为纯文本 `.txt`。
-
 ## 流程 1: B 站 AI 字幕 JSON 下载方法
+把 B 站 AI 字幕 JSON（`body[].content`）提取为纯文本 `.txt`。
 - 先不开启字幕
 - 打开浏览器开发者模式
 - 打开字幕
@@ -103,5 +102,16 @@ python3 auto_video_srt_pipeline.py --jobs 3
 video_to_mp3_batch.sh
 
 ## 流程 3: srt 转 txt
+
 convert_srt_to_txt.py
 run_convert_srt_to_txt.sh
+
+输入:download_srt
+输出:download_srt/converted_txt
+
+## 流程 4: 下载 youtube 的 srt
+download_youtube_srt.py
+run_download_youtube_srt.py
+如果视频也要就加 --with-video
+
+先在youtube_url.csv里一行放一个视频链接,保存的 srt 会放在download_srt
