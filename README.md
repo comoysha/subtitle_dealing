@@ -2,7 +2,7 @@
 
 把 B 站 AI 字幕 JSON（`body[].content`）提取为纯文本 `.txt`。
 
-## B 站 AI 字幕 JSON 下载方法
+## 流程 1: B 站 AI 字幕 JSON 下载方法
 - 先不开启字幕
 - 打开浏览器开发者模式
 - 打开字幕
@@ -33,7 +33,10 @@ python3 extract_bilibili_ai_subtitles.py --in-dir subtitle_json --out-dir output
 
 输出示例：`output_txt/大鹏-罗永浩的十字路口.txt`
 
-## 给视频配字幕
+### 可以运行脚本
+run_extract_bilibili_ai_subtitles.sh
+
+## 流程 2: 给视频配字幕并烧录
 
 ### 1. 将视频转为 MP3 音频
 
@@ -95,3 +98,10 @@ python3 auto_video_srt_pipeline.py --stop-after-srt
 # 指定并行任务数(不指定默认=4)
 python3 auto_video_srt_pipeline.py --jobs 3
 ```
+
+### 可以运行脚本
+video_to_mp3_batch.sh
+
+## 流程 3: srt 转 txt
+convert_srt_to_txt.py
+run_convert_srt_to_txt.sh
