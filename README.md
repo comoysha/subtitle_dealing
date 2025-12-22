@@ -61,7 +61,7 @@ OPENROUTER_API_KEY=你的key
 python3 transcribe_audio_to_srt_openrouter.py --input-dir output_audio --output-dir ai_srt --insecure
 
 # 只处理单个音频文件
-python3 transcribe_audio_to_srt_openrouter.py --input-file "output_audio/风光_sone-248_副本.mp3" --insecure 
+python3 transcribe_audio_to_srt_openrouter.py --input-file "output_audio/a.mp3" --insecure 
 
 # 覆盖已有 srt
 python3 transcribe_audio_to_srt_openrouter.py --input-dir output_audio --output-dir ai_srt --force --insecure
