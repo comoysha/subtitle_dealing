@@ -45,6 +45,9 @@ def run_ffmpeg(video: Path, srt: Path, out: Path, crf: int, preset: str, force: 
     cmd = [
         "ffmpeg",
         "-hide_banner",
+        "-loglevel",
+        "error",
+        "-stats",
         "-y" if force else "-n",
         "-i",
         video_str,

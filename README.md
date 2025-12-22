@@ -79,7 +79,7 @@ python3 burn_in_subtitles.py --video "a.mp4" --srt "a.srt" --force
 ```
 
 
-### $. 一键自动流程(多个视频串行处理: 先把所有视频逐个做第一个步骤,再把所有视频逐个做第二个步骤。。。)
+### $. 一键自动流程(多个视频并行)
 
 把视频放在 /Users/xiayue/subtitle_dealing/input_video 里, 脚本 `auto_video_srt_pipeline.py` 会自动完成：视频提取 mp3 → OpenRouter 转写生成 SRT → 硬字幕烧录输出到 `burn_video/`。
 
@@ -91,4 +91,7 @@ python3 auto_video_srt_pipeline.py --force
 
 # 输出 srt 文件就停止,不向后继续生成烧录视频
 python3 auto_video_srt_pipeline.py --stop-after-srt
+
+# 指定并行任务数(不指定默认=4)
+python3 auto_video_srt_pipeline.py --jobs 3
 ```
