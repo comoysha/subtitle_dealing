@@ -5,6 +5,7 @@ from pathlib import Path
 
 INPUT_DIR = Path("download_srt")
 OUTPUT_DIR = INPUT_DIR / "converted_txt"
+CONVERTED_SRT_DIR = INPUT_DIR / "converted_srt"
 
 ENCODING_CANDIDATES = [
     "utf-8",
@@ -70,6 +71,8 @@ def main() -> int:
     for input_path in input_files:
         output_path = OUTPUT_DIR / (input_path.stem + ".txt")
         convert_file(input_path, output_path)
+        CONVERTED_SRT_DIR.mkdir(parents=True, exist_ok=True)
+        input_path.replace(CONVERTED_SRT_DIR / input_path.name)
         print(f"Wrote {output_path}")
     return 0
 

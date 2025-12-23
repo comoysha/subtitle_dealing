@@ -83,7 +83,8 @@ python3 burn_in_subtitles.py --video "a.mp4" --srt "a.srt" --force
 
 ### $. 一键自动流程(多个视频并行)
 
-把视频放在 /Users/xiayue/subtitle_dealing/input_video 里, 脚本 `auto_video_srt_pipeline.py` 会自动完成：视频提取 mp3 → OpenRouter 转写生成 SRT → 硬字幕烧录输出到 `burn_video/`。
+输入: input_video
+输出: burn_video
 
 ```bash
 python3 auto_video_srt_pipeline.py
@@ -115,3 +116,17 @@ run_download_youtube_srt.py
 如果视频也要就加 --with-video
 
 先在youtube_url.csv里一行放一个视频链接,保存的 srt 会放在download_srt
+
+## 流程 5: 下载 youtube 博主的"视频"列表
+脚本 `download_youtube_channel_list.py` 会把某个 YouTube 博主的公开视频列表输出为 CSV（含标题、时长、上传日期、播放量、链接），默认保存到 `youtube_dump.csv`。
+
+```bash
+# 取视频列表写入 youtube_dump.csv
+python3 download_youtube_channel_list.py --channel-url "https://www.youtube.com/@SomeCreator/videos"
+
+# 限制条数并追加写入
+python3 download_youtube_channel_list.py --channel-url "https://www.youtube.com/@SomeCreator/videos" --limit 50 --append
+```
+
+### 可以运行脚本
+run_download_youtube_channel_list.sh
