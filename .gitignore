@@ -8,3 +8,7 @@
 **/*.mp4
 **/*.json
 **/*.pyc
+**/*.m4a
+
+# Python
+__pycache__/

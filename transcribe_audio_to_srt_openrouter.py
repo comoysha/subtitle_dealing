@@ -13,6 +13,7 @@ import urllib.request
 from pathlib import Path
 
 
+DEFAULT_AUDIO_EXTS = {".mp3", ".wav", ".m4a", ".aac", ".flac", ".ogg", ".opus"}
 DEFAULT_MODEL = "google/gemini-3-pro-preview"
 DEFAULT_PROMPT = (
     "根据音频文件，生成转写的中文（要翻译源语言）字幕文件，用 SRT 文件格式。"
@@ -21,7 +22,6 @@ DEFAULT_PROMPT = (
     "时间戳必须严格为 HH:MM:SS,mmm（小时/分钟/秒/毫秒），"
     "例如：00:00:12,345 --> 00:00:15,678。"
 )
-DEFAULT_AUDIO_EXTS = {".mp3", ".wav", ".m4a", ".aac", ".flac", ".ogg", ".opus"}
 
 
 def load_dotenv(path: Path) -> None:

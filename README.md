@@ -1,42 +1,5 @@
 # subtitle_dealing
 
-## 流程 1: B 站 AI 字幕 JSON 下载方法
-把 B 站 AI 字幕 JSON（`body[].content`）提取为纯文本 `.txt`。
-- 先不开启字幕
-- 打开浏览器开发者模式
-- 打开字幕
-- 查看新增的请求的返回结果,复制成 json 文件
-
-### 目录约定
-
-- 输入目录：`bilibili_subtitle_json_downloaded/`（放 `.json`）
-- 输出目录：`json_subtitle_to_txt/`（生成同名 `.txt`）
-
-### 使用方法
-
-在项目根目录运行：
-
-```bash
-# 处理 subtitle_json/ 下所有 .json
-python3 extract_bilibili_ai_subtitles.py
-
-# 指定某一个文件（可以只写文件名，会从 subtitle_json/ 里找）
-python3 extract_bilibili_ai_subtitles.py '大鹏-罗永浩的十字路口.json'
-
-# 也可以传入完整/相对路径
-python3 extract_bilibili_ai_subtitles.py subtitle_json/'大鹏-罗永浩的十字路口.json'
-
-# 自定义输入/输出目录
-python3 extract_bilibili_ai_subtitles.py --in-dir subtitle_json --out-dir output_txt
-```
-
-输出示例：`output_txt/大鹏-罗永浩的十字路口.txt`
-
-### 可以运行脚本
-run_extract_bilibili_ai_subtitles.sh
-
-## 流程 2: 给视频配字幕并烧录
-
 ### 1. 将视频转为 MP3 音频
 
 脚本 `video_to_mp3_batch.sh` 会把 `input_video/` 下的文件批量转为 `output_audio/` 下的 mp3，并把处理过的视频移动到 `input_video/已处理/`。
@@ -100,33 +63,4 @@ python3 auto_video_srt_pipeline.py --jobs 3
 ```
 
 ### 可以运行脚本
-video_to_mp3_batch.sh
-
-## 流程 3: srt 转 txt
-
-convert_srt_to_txt.py
-run_convert_srt_to_txt.sh
-
-输入:download_srt
-输出:download_srt/converted_txt
-
-## 流程 4: 下载 youtube 的 srt
-download_youtube_srt.py
-run_download_youtube_srt.py
-如果视频也要就加 --with-video
-
-先在youtube_url.csv里一行放一个视频链接,保存的 srt 会放在download_srt
-
-## 流程 5: 下载 youtube 博主的"视频"列表
-脚本 `download_youtube_channel_list.py` 会把某个 YouTube 博主的公开视频列表输出为 CSV（含标题、时长、上传日期、播放量、链接），默认保存到 `youtube_dump.csv`。
-
-```bash
-# 取视频列表写入 youtube_dump.csv
-python3 download_youtube_channel_list.py --channel-url "https://www.youtube.com/@SomeCreator/videos"
-
-# 限制条数并追加写入
-python3 download_youtube_channel_list.py --channel-url "https://www.youtube.com/@SomeCreator/videos" --limit 50 --append
-```
-
-### 可以运行脚本
-run_download_youtube_channel_list.sh
+run_auto_video_srt_pipeline.sh
